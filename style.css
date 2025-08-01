@@ -127,14 +127,18 @@ header.scrolled {
     align-items: center;
 }
 
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
+/* ADICIONE ESTE NOVO CÓDIGO PARA O LOGO EM IMAGEM */
+.logo-image-container img {
+    height: 50px; /* Altura inicial do logo */
+    width: auto;
+    display: block;
+    transition: height 0.3s ease; /* Animação suave ao rolar a página */
 }
-.logo-text span { color: var(--secondary); }
-header.scrolled .logo-text { color: var(--primary); }
+
+/* Reduz o tamanho do logo quando a página é rolada */
+header.scrolled .logo-image-container img {
+    height: 40px;
+}
 
 nav ul {
     display: flex;
@@ -404,9 +408,17 @@ footer {
 }
 .process-step:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 .step-number {
-    display: inline-block; width: 50px; height: 50px; line-height: 50px;
-    border-radius: 50%; background-color: var(--secondary); color: var(--dark);
-    font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;
+    display: flex; /* Alterado para flexbox */
+    align-items: center; /* Alinha o número verticalmente */
+    justify-content: center; /* Alinha o número horizontalmente */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--secondary); /* Cor laranja */
+    color: white; /* Cor do número alterada para branco */
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 .process-step h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
 .process-step p { color: #666; line-height: 1.6; }
@@ -642,4 +654,186 @@ header.scrolled .lang-link:hover {
 .lang-link.active {
     background-color: var(--secondary);
     color: var(--dark);
+}
+
+/* Adicione este código NO FINAL do seu ficheiro style.css */
+
+/* --- Novas Secções da Página Inicial --- */
+
+/* Secção: Modelo de Intervenção */
+.intervention-section {
+    background-color: #f9f9f9;
+}
+.intervention-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.intervention-card {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+.intervention-card .step-number {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.intervention-card h3 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+.intervention-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Secção: Agri-Hub (Homepage) */
+.agri-hub-home-section {
+    background-color: white;
+}
+.agri-hub-home-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+.agri-hub-home-text {
+    flex: 1;
+}
+.agri-hub-home-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+.agri-hub-home-text p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+.agri-hub-home-diagram {
+    flex: 1;
+    text-align: center;
+}
+.agri-hub-home-diagram img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+/* Secção: Locais de Atuação (Homepage) */
+.locations-home-section {
+    background-color: #f9f9f9;
+}
+.locations-home-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+.locations-home-text {
+    flex: 1; /* Ocupa 1 parte do espaço */
+}
+.locations-home-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+.locations-home-text p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.locations-home-list {
+    list-style: none;
+    padding-left: 0;
+}
+.locations-home-list li {
+    background-color: var(--secondary);
+    color: var(--dark);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* NOVO: Contentor para os dois mapas */
+.locations-home-maps-container {
+    flex: 1.2; /* Ocupa um pouco mais de espaço */
+    display: flex;
+    gap: 20px; /* Espaço entre os dois mapas */
+}
+
+/* Estilo individual para cada mapa */
+.locations-home-map {
+    flex: 1; /* Cada mapa ocupa metade do espaço no contentor */
+}
+
+.locations-home-map img {
+    width: 100%;
+    height: auto; /* Altura automática para manter proporção */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 3px solid white; /* Borda branca para destacar */
+}
+
+/* Ajuste de responsividade para os mapas */
+@media (max-width: 992px) {
+    .locations-home-content {
+        flex-direction: column-reverse; /* Coloca os mapas em cima do texto em mobile */
+    }
+}
+@media (max-width: 576px) {
+    .locations-home-maps-container {
+        flex-direction: column; /* Coloca um mapa em cima do outro em ecrãs muito pequenos */
+    }
+}
+
+/* Ajustes de responsividade para novas secções */
+@media (max-width: 992px) {
+    .agri-hub-home-content, .locations-home-content {
+        flex-direction: column;
+    }
+}
+
+/* ADICIONE ESTE NOVO CÓDIGO PARA O LOGO COMBINADO */
+
+/* O contentor principal para o logo (imagem + texto) */
+.logo-container {
+    display: flex;
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    gap: 15px; /* Espaço entre a imagem e o texto */
+    text-decoration: none;
+}
+
+/* Estilo para a IMAGEM do logo */
+.logo-container img {
+    height: 50px;
+    display: block;
+    transition: height 0.3s ease;
+}
+
+/* Estilo para o TEXTO do logo */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white; /* Cor inicial (header transparente) */
+    transition: all 0.3s ease;
+}
+
+.logo-text span {
+    color: var(--secondary); /* Cor laranja/amarela */
+}
+
+/* --- EFEITOS AO ROLAR A PÁGINA --- */
+
+/* Reduz o tamanho da imagem do logo ao rolar */
+header.scrolled .logo-container img {
+    height: 40px;
+}
+
+/* Altera a cor do texto do logo para verde quando o fundo do header for branco */
+header.scrolled .logo-text {
+    color: var(--primary);
 }
